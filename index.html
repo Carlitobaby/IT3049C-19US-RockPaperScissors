@@ -10,18 +10,18 @@
 <body>
    
     <h1>Rock Paper Scissors Game!</h1>
-
+    
     <div id="nameScreen">
         <form id="nameForm">
             <label for="userInput">
                 Enter Name:
                 <input type="text" id="userInput"/>
             </label>
-            <input type="submit" value="Start Playing!">
+            <input id="startButton" type="submit" value="Start Playing!">
         </form>
     </div>
 
-    <div id="gameScreen">
+    <div id="gameScreen" class="hidden">
         <form id="gameForm">
             <label for="gameInput">
                 Your Selection:
@@ -31,11 +31,10 @@
                     <option value="rock">Scissors</option>
                 </select>
             </label>
-
-                
+            <input type="submit" value="Go!">
         </form>
     </div>
 
-
+    <script src="index.js"></script>
 </body>
 </html>
