@@ -13,6 +13,8 @@ const gameScore = document.getElementById("gameScore");
 
 const roundResult = document.getElementById("roundResult");
 
+const resetButton = document.getElementById("resetButton");
+
 var userWins = 0;
 var computerWins = 0;
 var draws = 0;
@@ -108,4 +110,18 @@ gameForm.addEventListener("submit", function(gameSubmitEvent){
     console.log(`You chose ${userChoice}!`);
     console.log(`The computer chose ${computerChoice}!`);
     console.log(determineWinner(userChoice, computerChoice));
+});
+
+resetButton.addEventListener("click", function(resetButtonClickEvent){
+    resetButtonClickEvent.preventDefault();
+    nameScreen.classList.remove("hidden");
+    gameScreen.classList.add("hidden");
+    gameScore.innerHTML = "";
+    roundResult.innerHTML = "";
+    userWins = 0;
+    computerWins = 0;
+    draws = 0; 
+    round = 0;
+    userName.value = "";
+    return false;
 });
