@@ -22,17 +22,18 @@
     </div>
 
     <div id="gameScreen" class="hidden">
-        <form id="gameForm">
-            <label for="gameInput">
-                Your Selection:
-                <select id="userValue" onsubmit="userInput()">
-                    <option value="rock">Rock</option>
-                    <option value="paper">Paper</option>
-                    <option value="scissors">Scissors</option>
-                </select>
-            </label>
-            <input type="submit" value="Go!">
-        </form>
+        <div id="gameScore"></div>
+            <form id="gameForm">
+                <label for="gameInput">
+                    Your Selection:
+                    <select id="userValue" onsubmit="userInput()">
+                        <option value="rock">Rock</option>
+                        <option value="paper">Paper</option>
+                        <option value="scissors">Scissors</option>
+                    </select>
+                </label>
+                <input type="submit" value="Go!">
+            </form>
     </div>
 
     <script src="index.js"></script>

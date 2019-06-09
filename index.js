@@ -7,6 +7,15 @@ const gameScreen = document.getElementById("gameScreen");
 
 const gameForm = document.getElementById("gameForm");
 
+const userName = document.getElementById("userName");
+
+const gameScore = document.getElementById("gameScore");
+
+var userWins = 0;
+var computerWins = 0;
+var draws = 0;
+var round = 0;
+
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
     const randomChoice = Math.floor(Math.random() * 3);
@@ -21,24 +30,45 @@ function userInput() {
 
 function determineWinner(userChoice, computerChoice) {
     if (userChoice === computerChoice) {
-      return 'It\'s a tie!';
+        round++;
+        draws++;
+        gameScore.innerHTML = userName.value + ": " + userWins + " - Computer: " + computerWins + '<br> Ties: ' + draws;
+        alert(`It's a tie!`);
     } else if (userChoice === 'rock') {
       if (computerChoice === 'paper') {
-        return 'Computer wins!';
+        round++;
+        computerWins++;
+        gameScore.innerHTML = userName.value + ": " + userWins + " - Computer: " + computerWins + '<br> Ties: ' + draws;
+        alert(`Computer wins!`);
       } else {
-        return 'You win!';
+        round++;
+        userWins++;
+        gameScore.innerHTML = userName.value + ": " + userWins + " - Computer: " + computerWins + '<br> Ties: ' + draws;
+        alert(`You win!`);
       }
     } else if (userChoice === 'paper'){
-      if (compterChoice === 'scissors') {
-        return 'Computer wins!';
+      if (computerChoice === 'scissors') {
+        round++;
+        computerWins++;
+        gameScore.innerHTML = userName.value + ": " + userWins + " - Computer: " + computerWins + '<br> Ties: ' + draws;
+        alert(`Computer wins!`);
       }else {
-        return 'You win!';
+        round++;
+        userWins++;
+        gameScore.innerHTML = userName.value + ": " + userWins + " - Computer: " + computerWins + '<br> Ties: ' + draws;
+        alert(`You win!`);
       }
     } else if (userChoice === 'scissors') {
       if (computerChoice === 'rock') {
-        return 'Computer wins!';
+        round++;
+        computerWins++;
+        gameScore.innerHTML = userName.value + ": " + userWins + " - Computer: " + computerWins + '<br> Ties: ' + draws;
+        alert(`Computer wins!`);
       } else {
-        return 'You win!';
+        round++;
+        userWins++;
+        gameScore.innerHTML = userName.value + ": " + userWins + " - Computer: " + computerWins + '<br> Ties: ' + draws;
+        alert(`You win!`);
       }
     } 
   };
@@ -48,11 +78,14 @@ startButton.addEventListener("click", function (startButtonEvent){
 
     startButtonEvent.preventDefault();
 
-    console.log(`start button event`);
-    
-    nameScreen.classList.add("hidden");
+    if (userName.value === "") {
+        alert("Please enter a name!");
+       return false 
+    } else {
+        nameScreen.classList.add("hidden");
+        gameScreen.classList.remove("hidden");
+    }
 
-    gameScreen.classList.remove("hidden");
 });
 
 gameForm.addEventListener("submit", function(gameSubmitEvent){
@@ -65,5 +98,5 @@ gameForm.addEventListener("submit", function(gameSubmitEvent){
 
     console.log(`You chose ${userChoice}!`);
     console.log(`The computer chose ${computerChoice}!`);
-    console.log(determineWinner(userChoice,computerChoice));
+    console.log(determineWinner(userChoice, computerChoice));
 });
