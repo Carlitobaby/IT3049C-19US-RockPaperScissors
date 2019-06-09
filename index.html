@@ -25,10 +25,10 @@
         <form id="gameForm">
             <label for="gameInput">
                 Your Selection:
-                <select>
+                <select id="userValue" onsubmit="userInput()">
                     <option value="rock">Rock</option>
                     <option value="paper">Paper</option>
-                    <option value="rock">Scissors</option>
+                    <option value="scissors">Scissors</option>
                 </select>
             </label>
             <input type="submit" value="Go!">
