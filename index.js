@@ -11,6 +11,8 @@ const userName = document.getElementById("userName");
 
 const gameScore = document.getElementById("gameScore");
 
+const roundResult = document.getElementById("roundResult");
+
 var userWins = 0;
 var computerWins = 0;
 var draws = 0;
@@ -33,17 +35,20 @@ function determineWinner(userChoice, computerChoice) {
         round++;
         draws++;
         gameScore.innerHTML = userName.value + ": " + userWins + " - Computer: " + computerWins + '<br> Ties: ' + draws;
+        roundResult.innerHTML += "Round " + round + ": Tie round! " + userName.value + " chose: " + userChoice + ", Computer chose: " + computerChoice + '<br>';
         alert(`It's a tie!`);
     } else if (userChoice === 'rock') {
       if (computerChoice === 'paper') {
         round++;
         computerWins++;
         gameScore.innerHTML = userName.value + ": " + userWins + " - Computer: " + computerWins + '<br> Ties: ' + draws;
+        roundResult.innerHTML += "Round " + round + ": Computer Wins! " + userName.value + " chose: " + userChoice + ", Computer chose: " + computerChoice + '<br>';
         alert(`Computer wins!`);
       } else {
         round++;
         userWins++;
         gameScore.innerHTML = userName.value + ": " + userWins + " - Computer: " + computerWins + '<br> Ties: ' + draws;
+        roundResult.innerHTML += "Round " + round + ": You Win! " + userName.value + " chose: " + userChoice + ", Computer chose: " + computerChoice + '<br>';
         alert(`You win!`);
       }
     } else if (userChoice === 'paper'){
@@ -51,11 +56,13 @@ function determineWinner(userChoice, computerChoice) {
         round++;
         computerWins++;
         gameScore.innerHTML = userName.value + ": " + userWins + " - Computer: " + computerWins + '<br> Ties: ' + draws;
+        roundResult.innerHTML += "Round " + round + ": Computer Wins! " + userName.value + " chose: " + userChoice + ", Computer chose: " + computerChoice + '<br>';
         alert(`Computer wins!`);
       }else {
         round++;
         userWins++;
         gameScore.innerHTML = userName.value + ": " + userWins + " - Computer: " + computerWins + '<br> Ties: ' + draws;
+        roundResult.innerHTML += "Round " + round + ": You Win! " + userName.value + " chose: " + userChoice + ", Computer chose: " + computerChoice + '<br>';
         alert(`You win!`);
       }
     } else if (userChoice === 'scissors') {
@@ -63,11 +70,13 @@ function determineWinner(userChoice, computerChoice) {
         round++;
         computerWins++;
         gameScore.innerHTML = userName.value + ": " + userWins + " - Computer: " + computerWins + '<br> Ties: ' + draws;
+        roundResult.innerHTML += "Round " + round + ": Computer Wins! " + userName.value + " chose: " + userChoice + ", Computer chose: " + computerChoice + '<br>';
         alert(`Computer wins!`);
       } else {
         round++;
         userWins++;
         gameScore.innerHTML = userName.value + ": " + userWins + " - Computer: " + computerWins + '<br> Ties: ' + draws;
+        roundResult.innerHTML += "Round " + round + ": You Win! " + userName.value + " chose: " + userChoice + ", Computer chose: " + computerChoice + '<br>';
         alert(`You win!`);
       }
     } 
@@ -80,7 +89,7 @@ startButton.addEventListener("click", function (startButtonEvent){
 
     if (userName.value === "") {
         alert("Please enter a name!");
-       return false 
+        return false 
     } else {
         nameScreen.classList.add("hidden");
         gameScreen.classList.remove("hidden");
