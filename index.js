@@ -14,16 +14,41 @@ function getComputerChoice() {
 }
 
 function userInput() {
-   const userChoice = document.getElementById("userValue");
-   var result = userChoice.options[userChoice.selectedIndex].value;
-   return result;
+    const userPick = document.getElementById("userValue");
+    const userResult = userPick.options[userPick.selectedIndex].value;
+    return userResult;
 }
+
+function determineWinner(userChoice, computerChoice) {
+    if (userChoice === computerChoice) {
+      return 'It\'s a tie!';
+    } else if (userChoice === 'rock') {
+      if (computerChoice === 'paper') {
+        return 'Computer wins!';
+      } else {
+        return 'You win!';
+      }
+    } else if (userChoice === 'paper'){
+      if (compterChoice === 'scissors') {
+        return 'Computer wins!';
+      }else {
+        return 'You win!';
+      }
+    } else if (userChoice === 'scissors') {
+      if (computerChoice === 'rock') {
+        return 'Computer wins!';
+      } else {
+        return 'You win!';
+      }
+    } 
+  };
+
 
 startButton.addEventListener("click", function (startButtonEvent){
 
     startButtonEvent.preventDefault();
 
-    // console.log(`start button event`);
+    console.log(`start button event`);
     
     nameScreen.classList.add("hidden");
 
@@ -32,6 +57,13 @@ startButton.addEventListener("click", function (startButtonEvent){
 
 gameForm.addEventListener("submit", function(gameSubmitEvent){
     gameSubmitEvent.preventDefault();
-    // console.log(`computer choice:`, getComputerChoice());
-    // console.log(`user choice:`, userInput());
+    console.log(`computer choice:`, getComputerChoice());
+    console.log(`user choice:`, userInput());
+
+    const userChoice = userInput();
+    const computerChoice = getComputerChoice();
+
+    console.log(`You chose ${userChoice}!`);
+    console.log(`The computer chose ${computerChoice}!`);
+    console.log(determineWinner(userChoice,computerChoice));
 });
